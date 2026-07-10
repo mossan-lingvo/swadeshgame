@@ -50,19 +50,20 @@ function nextQuestion() {
     currentQuestion =
         pool[Math.floor(Math.random() * pool.length)];
 
-    labelEl.textContent =
-        currentQuestion.lang === "turkish"
-        ? "🇹🇷 トルコ語"
-        : "🇸🇦 アラビア語";
+    labelEl.textContent = "🇹🇷 トルコ語　🇸🇦 アラビア語";
 
-    wordEl.textContent = currentQuestion.word;
+wordEl.innerHTML =
+    `<div>${currentQuestion.tr}</div>
+     <div style="margin-top:15px;font-size:44px;direction:rtl;">
+        ${currentQuestion.ar}
+     </div>`;
 
-    let choices = [currentQuestion.answer];
-
+    let choices = [currentQuestion.ja];
+    
     while (choices.length < 4) {
 
-        const candidate =
-            pool[Math.floor(Math.random() * pool.length)].answer;
+     const candidate =
+    pool[Math.floor(Math.random() * pool.length)].ja;
 
         if (!choices.includes(candidate)) {
             choices.push(candidate);
@@ -84,7 +85,7 @@ function check(selected) {
 
     total++;
 
-    const isCorrect = selected === currentQuestion.answer;
+    const isCorrect = selected === currentQuestion.ja;
 
     if (isCorrect) {
 
@@ -94,7 +95,7 @@ function check(selected) {
     } else {
 
         resultEl.textContent =
-            "❌ 不正解！（正解：" + currentQuestion.answer + "）";
+            "❌ 不正解！（正解：" + currentQuestion.ja + "）";
 
     }
 
@@ -102,7 +103,7 @@ function check(selected) {
 
         button.disabled = true;
 
-        if (button.textContent === currentQuestion.answer) {
+        if (button.textContent === currentQuestion.ja) {
             button.classList.add("correct");
         } else if (button.textContent === selected) {
             button.classList.add("wrong");
