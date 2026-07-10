@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トルコ語・アラビア語 単語クイズ</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌍 トルコ語・アラビア語 単語ゲーム</h1>
+
+    <div class="topbar">
+
+        <select id="mode">
+            <option value="mixed">🌍 混合</option>
+            <option value="turkish">🇹🇷 トルコ語</option>
+            <option value="arabic">🇸🇦 アラビア語</option>
+        </select>
+
+        <button id="restart">
+            リセット
+        </button>
+
+    </div>
+
+    <div class="score">
+
+        <div>問題 <span id="questionNumber">1</span></div>
+
+        <div>正解 <span id="correctCount">0</span></div>
+
+        <div>正答率 <span id="accuracy">0%</span></div>
+
+    </div>
+
+    <div class="card">
+
+        <div id="languageLabel">
+            トルコ語
+        </div>
+
+        <div id="word">
+            kelime
+        </div>
+
+    </div>
+
+    <div id="choices">
+
+        <button class="choice"></button>
+        <button class="choice"></button>
+        <button class="choice"></button>
+        <button class="choice"></button>
+
+    </div>
+
+    <div id="result"></div>
+
+    <button id="nextButton">
+        次の問題
+    </button>
+
+</div>
+
+<script src="words.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
