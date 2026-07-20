@@ -68,6 +68,7 @@ select {
 #languageLabel {
     font-size: 18px;
     color: #666;
+    line-height: 1.6;
 }
 
 #word {
@@ -132,4 +133,19 @@ select {
         font-size:17px;
     }
 
+}
+.word-entry + .word-entry {
+    margin-top: 15px;
+}
+
+.word-entry > :first-child {
+    line-height: 1.25;
+}
+
+.transliteration {
+    color: #666;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 4px;
+    line-height: 1.3;
 }
