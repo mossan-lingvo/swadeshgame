@@ -11,6 +11,13 @@ const LANGUAGES = {
     mongolian: { label: "🇲🇳 モンゴル語", key: "mn", lang: "mn" }
 };
 
+const LANGUAGES = {
+    turkish: { label: "🇹🇷 トルコ語", key: "tr", lang: "tr" },
+    arabic: { label: "🇸🇦 アラビア語", key: "ar", lang: "ar", transliterationKey: "arLatn", rtl: true },
+    persian: { label: "🇮🇷 ペルシア語", key: "fa", lang: "fa", transliterationKey: "faLatn", rtl: true },
+    mongolian: { label: "🇲🇳 モンゴル語", key: "mn", lang: "mn" }
+};
+
 const wordEl = document.getElementById("word");
 const labelEl = document.getElementById("languageLabel");
 const resultEl = document.getElementById("result");
