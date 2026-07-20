@@ -2,6 +2,14 @@ let currentQuestion;
 let previousQuestion;
 let total = 0;
 let correct = 0;
+let retryQueue = [];
+
+const LANGUAGES = {
+    turkish: { label: "🇹🇷 トルコ語", key: "tr", lang: "tr" },
+    arabic: { label: "🇸🇦 アラビア語", key: "ar", lang: "ar", transliterationKey: "arLatn", rtl: true },
+    persian: { label: "🇮🇷 ペルシア語", key: "fa", lang: "fa", transliterationKey: "faLatn", rtl: true },
+    mongolian: { label: "🇲🇳 モンゴル語", key: "mn", lang: "mn" }
+};
 
 const LANGUAGES = {
     turkish: { label: "🇹🇷 トルコ語", key: "tr", lang: "tr" },
@@ -14,6 +22,10 @@ const wordEl = document.getElementById("word");
 const labelEl = document.getElementById("languageLabel");
 const resultEl = document.getElementById("result");
 const nextButton = document.getElementById("nextButton");
+const examplesEl = document.getElementById("examples");
+const exampleListEl = document.getElementById("exampleList");
+const firstLanguageEl = document.getElementById("firstLanguage");
+const secondLanguageEl = document.getElementById("secondLanguage");
 
 const questionNumber = document.getElementById("questionNumber");
 const correctCount = document.getElementById("correctCount");
@@ -33,13 +45,47 @@ function shuffle(array) {
 }
 
 function getSelectedLanguages() {
-    const mode = document.getElementById("mode").value;
+    return [LANGUAGES[firstLanguageEl.value], LANGUAGES[secondLanguageEl.value]];
+}
 
-    if (mode === "mixed") {
-        return Object.values(LANGUAGES);
-    }
+function renderExamples(languages) {
+    exampleListEl.replaceChildren();
 
-    return [LANGUAGES[mode]];
+    languages.forEach(language => {
+        const example = currentQuestion.examples[language.key];
+        const card = document.createElement("article");
+        card.className = "example-card";
+
+        const heading = document.createElement("h3");
+        heading.textContent = language.label;
+        card.appendChild(heading);
+
+        const sentence = document.createElement("p");
+        sentence.className = "example-sentence";
+        sentence.lang = language.lang;
+        sentence.dir = language.rtl ? "rtl" : "ltr";
+        sentence.textContent = example.text;
+        card.appendChild(sentence);
+
+        if (example.latn) {
+            const transliteration = document.createElement("p");
+            transliteration.className = "example-transliteration";
+            transliteration.lang = "en-Latn";
+            transliteration.dir = "ltr";
+            transliteration.textContent = example.latn;
+            card.appendChild(transliteration);
+        }
+
+        const translation = document.createElement("p");
+        translation.className = "example-translation";
+        translation.lang = "ja";
+        translation.textContent = `日本語：${example.ja}`;
+        card.appendChild(translation);
+
+        exampleListEl.appendChild(card);
+    });
+
+    examplesEl.hidden = false;
 }
 
 function renderWords(languages) {
@@ -73,10 +119,20 @@ function pickQuestion() {
         throw new Error("クイズには4件以上の単語が必要です。");
     }
 
-    const candidates = WORDS.length > 1
-        ? WORDS.filter(word => word !== previousQuestion)
-        : WORDS;
-    const question = candidates[Math.floor(Math.random() * candidates.length)];
+    const retryIndex = retryQueue.findIndex(item => total >= item.availableAfter);
+    let question;
+
+    if (retryIndex >= 0) {
+        question = retryQueue.splice(retryIndex, 1)[0].word;
+    } else {
+        const queuedWords = new Set(retryQueue.map(item => item.word));
+        const candidates = WORDS.filter(word =>
+            word !== previousQuestion && !queuedWords.has(word)
+        );
+        const pool = candidates.length > 0 ? candidates : WORDS.filter(word => word !== previousQuestion);
+        question = pool[Math.floor(Math.random() * pool.length)];
+    }
+
     previousQuestion = question;
 
     return question;
@@ -85,6 +141,8 @@ function pickQuestion() {
 function nextQuestion() {
 
     resultEl.textContent = "";
+    examplesEl.hidden = true;
+    exampleListEl.replaceChildren();
 
     nextButton.style.display = "none";
 
@@ -133,6 +191,8 @@ function check(selected) {
         resultEl.textContent =
             "❌ 不正解！（正解：" + currentQuestion.ja + "）";
 
+        retryQueue.push({ word: currentQuestion, availableAfter: total + 1 });
+
     }
 
     buttons.forEach(button => {
@@ -146,6 +206,8 @@ function check(selected) {
         }
 
     });
+
+    renderExamples(getSelectedLanguages());
 
     questionNumber.textContent = total + 1;
     correctCount.textContent = correct;
@@ -167,12 +229,13 @@ document.getElementById("restart").onclick = () => {
     correctCount.textContent = 0;
     accuracy.textContent = "0%";
     previousQuestion = undefined;
+    retryQueue = [];
 
     nextQuestion();
 
 };
 
-document.getElementById("mode").onchange = () => {
+function resetForLanguageChange() {
 
     total = 0;
     correct = 0;
@@ -181,9 +244,28 @@ document.getElementById("mode").onchange = () => {
     correctCount.textContent = 0;
     accuracy.textContent = "0%";
     previousQuestion = undefined;
+    retryQueue = [];
 
     nextQuestion();
 
+}
+
+const previousSelections = {
+    firstLanguage: firstLanguageEl.value,
+    secondLanguage: secondLanguageEl.value
 };
+
+function changeLanguage(changedSelect, otherSelect) {
+    if (changedSelect.value === otherSelect.value) {
+        otherSelect.value = previousSelections[changedSelect.id];
+    }
+
+    previousSelections.firstLanguage = firstLanguageEl.value;
+    previousSelections.secondLanguage = secondLanguageEl.value;
+    resetForLanguageChange();
+}
+
+firstLanguageEl.onchange = () => changeLanguage(firstLanguageEl, secondLanguageEl);
+secondLanguageEl.onchange = () => changeLanguage(secondLanguageEl, firstLanguageEl);
 
 nextQuestion();

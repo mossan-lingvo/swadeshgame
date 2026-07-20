@@ -30,6 +30,7 @@ jobs:
         run: |
           node --check script.js
           node --check words.js
+          node tests/quiz.test.js
 
       - name: Prepare site
         run: |

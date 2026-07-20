@@ -14,17 +14,31 @@
 
     <h1>🌍 トルコ語・アラビア語・ペルシア語・モンゴル語 単語ゲーム</h1>
 
+    <div class="language-selectors" aria-label="出題言語と表示順">
+        <label>
+            <span>第1言語</span>
+            <select id="firstLanguage">
+                <option value="turkish">🇹🇷 トルコ語</option>
+                <option value="arabic">🇸🇦 アラビア語</option>
+                <option value="persian">🇮🇷 ペルシア語</option>
+                <option value="mongolian">🇲🇳 モンゴル語</option>
+            </select>
+        </label>
+
+        <label>
+            <span>第2言語</span>
+            <select id="secondLanguage">
+                <option value="turkish">🇹🇷 トルコ語</option>
+                <option value="arabic" selected>🇸🇦 アラビア語</option>
+                <option value="persian">🇮🇷 ペルシア語</option>
+                <option value="mongolian">🇲🇳 モンゴル語</option>
+            </select>
+        </label>
+    </div>
+
     <div class="topbar">
 
-        <select id="mode">
-            <option value="mixed">🌍 混合</option>
-            <option value="turkish">🇹🇷 トルコ語</option>
-            <option value="arabic">🇸🇦 アラビア語</option>
-            <option value="persian">🇮🇷 ペルシア語</option>
-            <option value="mongolian">🇲🇳 モンゴル語</option>
-        </select>
-
-        <button id="restart">
+        <button id="restart" type="button">
             リセット
         </button>
 
@@ -54,16 +68,21 @@
 
     <div id="choices">
 
-        <button class="choice"></button>
-        <button class="choice"></button>
-        <button class="choice"></button>
-        <button class="choice"></button>
+        <button class="choice" type="button"></button>
+        <button class="choice" type="button"></button>
+        <button class="choice" type="button"></button>
+        <button class="choice" type="button"></button>
 
     </div>
 
-    <div id="result"></div>
+    <div id="result" role="status" aria-live="polite"></div>
 
-    <button id="nextButton">
+    <section id="examples" hidden aria-live="polite">
+        <h2>例文</h2>
+        <div id="exampleList"></div>
+    </section>
+
+    <button id="nextButton" type="button">
         次の問題
     </button>
 
