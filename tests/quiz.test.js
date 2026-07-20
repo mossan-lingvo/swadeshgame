@@ -55,6 +55,22 @@ function createQuiz() {
             assert.ok(word[key], `${word.ja} needs ${key}`));
     });
     assert.equal(vm.runInContext("roundWords.length", context), 10);
+
+    const japaneseExamples = JSON.parse(vm.runInContext(
+        "JSON.stringify(WORDS.map(word => getExample(word, LANGUAGES.turkish).ja))",
+        context
+    ));
+    assert.ok(new Set(japaneseExamples).size >= 10, "examples should use varied, contextual sentences");
+    assert.ok(japaneseExamples.every(example => !example.includes("という単語を学んでいます")));
+
+    vm.runInContext(`WORDS.forEach(word => {
+        Object.values(LANGUAGES).forEach(language => {
+            const example = getExample(word, language);
+            if (!example.text.includes(word[language.key])) {
+                throw new Error(word.ja + "/" + language.key + " example omits its vocabulary word");
+            }
+        });
+    })`, context);
 }
 
 {
