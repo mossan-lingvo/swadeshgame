@@ -74,7 +74,7 @@ function createQuiz() {
             const normalize = value => value.toLocaleLowerCase(language.lang)
                 .normalize("NFD").replace(/\\p{M}/gu, "");
             const normalizedWord = normalize(word[language.key]);
-            const searchableStem = normalizedWord.slice(0, Math.max(2, Math.ceil(normalizedWord.length * 0.6)));
+            const searchableStem = normalizedWord.slice(0, Math.max(2, Math.ceil(normalizedWord.length * 0.5)));
             if (!normalize(example.text).includes(searchableStem)) {
                 throw new Error(word.ja + "/" + language.key + " example omits its vocabulary word");
             }
@@ -98,6 +98,16 @@ function createQuiz() {
     Object.values(stoneExample).filter(value => typeof value === "object").forEach(example => {
         assert.equal(example.translationJa, "この石は重いです。");
         assert.ok(!example.translationJa.includes("きれいに見えます"));
+    });
+
+    const revisedMeanings = ["名前", "目", "耳", "鼻", "口", "手", "足", "頭", "心臓・心", "米・ご飯", "日・昼"];
+    revisedMeanings.forEach(word => {
+        const examples = JSON.parse(vm.runInContext(`JSON.stringify(EXAMPLES[${JSON.stringify(word)}])`, context));
+        Object.values(examples).filter(value => typeof value === "object").forEach(example => {
+            assert.ok(!example.translationJa.includes("どこにありますか"));
+            assert.ok(!example.translationJa.includes("医者が"));
+            assert.ok(!example.translationJa.includes("・"), `${word} example must choose one meaning`);
+        });
     });
 }
 

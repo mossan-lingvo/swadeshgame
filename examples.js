@@ -911,235 +911,235 @@ const EXAMPLES = {
     },
     "名前": {
         "tr": {
-            "sentence": "isim nerede?",
-            "translationJa": "名前はどこにありますか？"
+            "sentence": "İsmim Ali.",
+            "translationJa": "私の名前はアリです。"
         },
         "ar": {
-            "sentence": "أين اسم؟",
-            "transliteration": "ayna ism",
-            "translationJa": "名前はどこにありますか？"
+            "sentence": "اسمي علي.",
+            "transliteration": "ismī ʿAlī",
+            "translationJa": "私の名前はアリです。"
         },
         "fa": {
-            "sentence": "نام کجاست؟",
-            "transliteration": "nâm kojâst",
-            "translationJa": "名前はどこにありますか？"
+            "sentence": "نام من علی است.",
+            "transliteration": "nâm-e man Ali ast",
+            "translationJa": "私の名前はアリです。"
         },
         "mn": {
-            "sentence": "нэр хаана байна вэ?",
-            "translationJa": "名前はどこにありますか？"
+            "sentence": "Миний нэр Али.",
+            "translationJa": "私の名前はアリです。"
         },
         "hi": {
-            "sentence": "नाम कहाँ है?",
-            "transliteration": "nām kahā̃ hai",
-            "translationJa": "名前はどこにありますか？"
+            "sentence": "मेरा नाम अली है।",
+            "transliteration": "merā nām Alī hai",
+            "translationJa": "私の名前はアリです。"
         },
         "reviewed": true
     },
     "目": {
         "tr": {
-            "sentence": "Doktor göz kontrol etti.",
-            "translationJa": "医者が目を診察しました。"
+            "sentence": "Gözlerim iyi görüyor.",
+            "translationJa": "私の目はよく見えます。"
         },
         "ar": {
-            "sentence": "فحص الطبيب عين.",
-            "transliteration": "faḥaṣa al-ṭabību ʿayn",
-            "translationJa": "医者が目を診察しました。"
+            "sentence": "عيناي تريان جيدا.",
+            "transliteration": "ʿaynāya tarayāni jayyidan",
+            "translationJa": "私の目はよく見えます。"
         },
         "fa": {
-            "sentence": "پزشک چشم را معاینه کرد.",
-            "transliteration": "pezeshk cheshm râ moâyene kard",
-            "translationJa": "医者が目を診察しました。"
+            "sentence": "چشم‌هایم خوب می‌بینند.",
+            "transliteration": "cheshmhâyam xub mibinand",
+            "translationJa": "私の目はよく見えます。"
         },
         "mn": {
-            "sentence": "Эмч миний нүд үзлээ.",
-            "translationJa": "医者が目を診察しました。"
+            "sentence": "Миний нүд сайн хардаг.",
+            "translationJa": "私の目はよく見えます。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने आँख की जाँच की।",
-            "transliteration": "ḍŏkṭar ne ā̃kh kī jā̃ch kī",
-            "translationJa": "医者が目を診察しました。"
+            "sentence": "मेरी आँखें साफ़ देखती हैं।",
+            "transliteration": "merī ā̃khẽ sāf dekhtī haĩ",
+            "translationJa": "私の目はよく見えます。"
         },
         "reviewed": true
     },
     "耳": {
         "tr": {
-            "sentence": "Doktor kulak kontrol etti.",
-            "translationJa": "医者が耳を診察しました。"
+            "sentence": "Kulak sesi duyar.",
+            "translationJa": "耳で音を聞きます。"
         },
         "ar": {
-            "sentence": "فحص الطبيب أذن.",
-            "transliteration": "faḥaṣa al-ṭabību udhun",
-            "translationJa": "医者が耳を診察しました。"
+            "sentence": "الأذن تسمع الصوت.",
+            "transliteration": "al-udhunu tasmaʿu al-ṣawt",
+            "translationJa": "耳で音を聞きます。"
         },
         "fa": {
-            "sentence": "پزشک گوش را معاینه کرد.",
-            "transliteration": "pezeshk gush râ moâyene kard",
-            "translationJa": "医者が耳を診察しました。"
+            "sentence": "گوش صدا را می‌شنود.",
+            "transliteration": "gush sedâ râ mishenavad",
+            "translationJa": "耳で音を聞きます。"
         },
         "mn": {
-            "sentence": "Эмч миний чих үзлээ.",
-            "translationJa": "医者が耳を診察しました。"
+            "sentence": "Чих дуу сонсдог.",
+            "translationJa": "耳で音を聞きます。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने कान की जाँच की।",
-            "transliteration": "ḍŏkṭar ne kān kī jā̃ch kī",
-            "translationJa": "医者が耳を診察しました。"
+            "sentence": "कान आवाज़ सुनता है।",
+            "transliteration": "kān āvāz suntā hai",
+            "translationJa": "耳で音を聞きます。"
         },
         "reviewed": true
     },
     "鼻": {
         "tr": {
-            "sentence": "Doktor burun kontrol etti.",
-            "translationJa": "医者が鼻を診察しました。"
+            "sentence": "Burnum soğuk.",
+            "translationJa": "私の鼻は冷たいです。"
         },
         "ar": {
-            "sentence": "فحص الطبيب أنف.",
-            "transliteration": "faḥaṣa al-ṭabību anf",
-            "translationJa": "医者が鼻を診察しました。"
+            "sentence": "أنفي بارد.",
+            "transliteration": "anfī bārid",
+            "translationJa": "私の鼻は冷たいです。"
         },
         "fa": {
-            "sentence": "پزشک بینی را معاینه کرد.",
-            "transliteration": "pezeshk bini râ moâyene kard",
-            "translationJa": "医者が鼻を診察しました。"
+            "sentence": "بینی من سرد است.",
+            "transliteration": "bini-ye man sard ast",
+            "translationJa": "私の鼻は冷たいです。"
         },
         "mn": {
-            "sentence": "Эмч миний хамар үзлээ.",
-            "translationJa": "医者が鼻を診察しました。"
+            "sentence": "Миний хамар хүйтэн.",
+            "translationJa": "私の鼻は冷たいです。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने नाक की जाँच की।",
-            "transliteration": "ḍŏkṭar ne nāk kī jā̃ch kī",
-            "translationJa": "医者が鼻を診察しました。"
+            "sentence": "मेरी नाक ठंडी है।",
+            "transliteration": "merī nāk ṭhaṇḍī hai",
+            "translationJa": "私の鼻は冷たいです。"
         },
         "reviewed": true
     },
     "口": {
         "tr": {
-            "sentence": "Doktor ağız kontrol etti.",
-            "translationJa": "医者が口を診察しました。"
+            "sentence": "Ağzını aç.",
+            "translationJa": "口を開けてください。"
         },
         "ar": {
-            "sentence": "فحص الطبيب فم.",
-            "transliteration": "faḥaṣa al-ṭabību fam",
-            "translationJa": "医者が口を診察しました。"
+            "sentence": "افتح فمك.",
+            "transliteration": "iftaḥ famaka",
+            "translationJa": "口を開けてください。"
         },
         "fa": {
-            "sentence": "پزشک دهان را معاینه کرد.",
-            "transliteration": "pezeshk dahân râ moâyene kard",
-            "translationJa": "医者が口を診察しました。"
+            "sentence": "دهانت را باز کن.",
+            "transliteration": "dahânat râ bâz kon",
+            "translationJa": "口を開けてください。"
         },
         "mn": {
-            "sentence": "Эмч миний ам үзлээ.",
-            "translationJa": "医者が口を診察しました。"
+            "sentence": "Амаа нээгээрэй.",
+            "translationJa": "口を開けてください。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने मुँह की जाँच की।",
-            "transliteration": "ḍŏkṭar ne mũh kī jā̃ch kī",
-            "translationJa": "医者が口を診察しました。"
+            "sentence": "मुँह खोलिए।",
+            "transliteration": "mũh kholie",
+            "translationJa": "口を開けてください。"
         },
         "reviewed": true
     },
     "手": {
         "tr": {
-            "sentence": "Doktor el kontrol etti.",
-            "translationJa": "医者が手を診察しました。"
+            "sentence": "Ellerini yıka.",
+            "translationJa": "手を洗ってください。"
         },
         "ar": {
-            "sentence": "فحص الطبيب يد.",
-            "transliteration": "faḥaṣa al-ṭabību yad",
-            "translationJa": "医者が手を診察しました。"
+            "sentence": "اغسل يديك.",
+            "transliteration": "ighsil yadayka",
+            "translationJa": "手を洗ってください。"
         },
         "fa": {
-            "sentence": "پزشک دست را معاینه کرد.",
-            "transliteration": "pezeshk dast râ moâyene kard",
-            "translationJa": "医者が手を診察しました。"
+            "sentence": "دست‌هایت را بشوی.",
+            "transliteration": "dasthâyat râ beshuy",
+            "translationJa": "手を洗ってください。"
         },
         "mn": {
-            "sentence": "Эмч миний гар үзлээ.",
-            "translationJa": "医者が手を診察しました。"
+            "sentence": "Гараа уугаарай.",
+            "translationJa": "手を洗ってください。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने हाथ की जाँच की।",
-            "transliteration": "ḍŏkṭar ne hāth kī jā̃ch kī",
-            "translationJa": "医者が手を診察しました。"
+            "sentence": "हाथ धोइए।",
+            "transliteration": "hāth dhoie",
+            "translationJa": "手を洗ってください。"
         },
         "reviewed": true
     },
     "足": {
         "tr": {
-            "sentence": "Doktor ayak kontrol etti.",
-            "translationJa": "医者が足を診察しました。"
+            "sentence": "Ayağım ağrıyor.",
+            "translationJa": "足が痛いです。"
         },
         "ar": {
-            "sentence": "فحص الطبيب قدم.",
-            "transliteration": "faḥaṣa al-ṭabību qadam",
-            "translationJa": "医者が足を診察しました。"
+            "sentence": "قدمي تؤلمني.",
+            "transliteration": "qadamī tuʾlimunī",
+            "translationJa": "足が痛いです。"
         },
         "fa": {
-            "sentence": "پزشک پا را معاینه کرد.",
-            "transliteration": "pezeshk pâ râ moâyene kard",
-            "translationJa": "医者が足を診察しました。"
+            "sentence": "پایم درد می‌کند.",
+            "transliteration": "pâyam dard mikonad",
+            "translationJa": "足が痛いです。"
         },
         "mn": {
-            "sentence": "Эмч миний хөл үзлээ.",
-            "translationJa": "医者が足を診察しました。"
+            "sentence": "Миний хөл өвдөж байна.",
+            "translationJa": "足が痛いです。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने पैर की जाँच की।",
-            "transliteration": "ḍŏkṭar ne pair kī jā̃ch kī",
-            "translationJa": "医者が足を診察しました。"
+            "sentence": "मेरे पैर में दर्द है।",
+            "transliteration": "mere pair mẽ dard hai",
+            "translationJa": "足が痛いです。"
         },
         "reviewed": true
     },
     "頭": {
         "tr": {
-            "sentence": "Doktor baş kontrol etti.",
-            "translationJa": "医者が頭を診察しました。"
+            "sentence": "Başım ağrıyor.",
+            "translationJa": "頭が痛いです。"
         },
         "ar": {
-            "sentence": "فحص الطبيب رأس.",
-            "transliteration": "faḥaṣa al-ṭabību raʾs",
-            "translationJa": "医者が頭を診察しました。"
+            "sentence": "رأسي يؤلمني.",
+            "transliteration": "raʾsī yuʾlimunī",
+            "translationJa": "頭が痛いです。"
         },
         "fa": {
-            "sentence": "پزشک سر را معاینه کرد.",
-            "transliteration": "pezeshk sar râ moâyene kard",
-            "translationJa": "医者が頭を診察しました。"
+            "sentence": "سرم درد می‌کند.",
+            "transliteration": "saram dard mikonad",
+            "translationJa": "頭が痛いです。"
         },
         "mn": {
-            "sentence": "Эмч миний толгой үзлээ.",
-            "translationJa": "医者が頭を診察しました。"
+            "sentence": "Миний толгой өвдөж байна.",
+            "translationJa": "頭が痛いです。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने सिर की जाँच की।",
-            "transliteration": "ḍŏkṭar ne sir kī jā̃ch kī",
-            "translationJa": "医者が頭を診察しました。"
+            "sentence": "मेरे सिर में दर्द है।",
+            "transliteration": "mere sir mẽ dard hai",
+            "translationJa": "頭が痛いです。"
         },
         "reviewed": true
     },
     "心臓・心": {
         "tr": {
-            "sentence": "Doktor kalp kontrol etti.",
-            "translationJa": "医者が心臓・心を診察しました。"
+            "sentence": "Kalbim hızlı atıyor.",
+            "translationJa": "心臓が速く動いています。"
         },
         "ar": {
-            "sentence": "فحص الطبيب قلب.",
-            "transliteration": "faḥaṣa al-ṭabību qalb",
-            "translationJa": "医者が心臓・心を診察しました。"
+            "sentence": "قلبي ينبض بسرعة.",
+            "transliteration": "qalbī yanbiḍu bisurʿa",
+            "translationJa": "心臓が速く動いています。"
         },
         "fa": {
-            "sentence": "پزشک قلب را معاینه کرد.",
-            "transliteration": "pezeshk qalb râ moâyene kard",
-            "translationJa": "医者が心臓・心を診察しました。"
+            "sentence": "قلبم تند می‌زند.",
+            "transliteration": "qalbam tond mizanad",
+            "translationJa": "心臓が速く動いています。"
         },
         "mn": {
-            "sentence": "Эмч миний зүрх үзлээ.",
-            "translationJa": "医者が心臓・心を診察しました。"
+            "sentence": "Зүрх хурдан цохилж байна.",
+            "translationJa": "心臓が速く動いています。"
         },
         "hi": {
-            "sentence": "डॉक्टर ने दिल की जाँच की।",
-            "transliteration": "ḍŏkṭar ne dil kī jā̃ch kī",
-            "translationJa": "医者が心臓・心を診察しました。"
+            "sentence": "दिल तेज़ धड़कता है।",
+            "transliteration": "dil tez dhaṛaktā hai",
+            "translationJa": "心臓が速く動いています。"
         },
         "reviewed": true
     },
@@ -1275,27 +1275,27 @@ const EXAMPLES = {
     },
     "米・ご飯": {
         "tr": {
-            "sentence": "Masada pirinç var.",
-            "translationJa": "テーブルの上に米・ご飯があります。"
+            "sentence": "Pirinç yiyorum.",
+            "translationJa": "ご飯を食べます。"
         },
         "ar": {
-            "sentence": "يوجد أرز على المائدة.",
-            "transliteration": "yūjadu aruzz ʿalā al-māʾida",
-            "translationJa": "テーブルの上に米・ご飯があります。"
+            "sentence": "آكل الأرز.",
+            "transliteration": "ākulu al-aruzza",
+            "translationJa": "ご飯を食べます。"
         },
         "fa": {
-            "sentence": "برنج روی میز است.",
-            "transliteration": "berenj ru-ye miz ast",
-            "translationJa": "テーブルの上に米・ご飯があります。"
+            "sentence": "برنج می‌خورم.",
+            "transliteration": "berenj mixoram",
+            "translationJa": "ご飯を食べます。"
         },
         "mn": {
-            "sentence": "Ширээн дээр будаа байна.",
-            "translationJa": "テーブルの上に米・ご飯があります。"
+            "sentence": "Би будаа иддэг.",
+            "translationJa": "ご飯を食べます。"
         },
         "hi": {
-            "sentence": "मेज़ पर चावल है।",
-            "transliteration": "mez par chāval hai",
-            "translationJa": "テーブルの上に米・ご飯があります。"
+            "sentence": "मैं चावल खाता हूँ।",
+            "transliteration": "main chāval khātā hū̃",
+            "translationJa": "ご飯を食べます。"
         },
         "reviewed": true
     },
@@ -1587,27 +1587,27 @@ const EXAMPLES = {
     },
     "日・昼": {
         "tr": {
-            "sentence": "gün için bir plan yaptım.",
-            "translationJa": "日・昼のために予定を立てました。"
+            "sentence": "Gün uzun.",
+            "translationJa": "日が長いです。"
         },
         "ar": {
-            "sentence": "وضعت خطة من أجل نهار.",
-            "transliteration": "waḍaʿtu khuṭṭatan min ajli nahār",
-            "translationJa": "日・昼のために予定を立てました。"
+            "sentence": "النهار طويل.",
+            "transliteration": "al-nahāru ṭawīl",
+            "translationJa": "日が長いです。"
         },
         "fa": {
-            "sentence": "برای روز برنامه دارم.",
-            "transliteration": "barâ-ye ruz barnâme dâram",
-            "translationJa": "日・昼のために予定を立てました。"
+            "sentence": "روز طولانی است.",
+            "transliteration": "ruz tulâni ast",
+            "translationJa": "日が長いです。"
         },
         "mn": {
-            "sentence": "Би өдөр-д зориулж төлөвлөгөө гаргасан.",
-            "translationJa": "日・昼のために予定を立てました。"
+            "sentence": "Өдөр урт байна.",
+            "translationJa": "日が長いです。"
         },
         "hi": {
-            "sentence": "मैंने दिन के लिए योजना बनाई।",
-            "transliteration": "mainne din ke lie yojnā banāī",
-            "translationJa": "日・昼のために予定を立てました。"
+            "sentence": "दिन लंबा है।",
+            "transliteration": "din lambā hai",
+            "translationJa": "日が長いです。"
         },
         "reviewed": true
     },
