@@ -495,157 +495,157 @@ const EXAMPLES = {
     },
     "木": {
         "tr": {
-            "sentence": "Bugün ağaç çok güzel görünüyor.",
-            "translationJa": "今日は木がとてもきれいに見えます。"
+            "sentence": "Bu ağaç çok uzun.",
+            "translationJa": "この木は高いです。"
         },
         "ar": {
-            "sentence": "يبدو شجرة جميلا اليوم.",
-            "transliteration": "yabdū shajara jamīlan al-yawm",
-            "translationJa": "今日は木がとてもきれいに見えます。"
+            "sentence": "هذه الشجرة طويلة.",
+            "transliteration": "hādhihi al-shajara ṭawīla",
+            "translationJa": "この木は高いです。"
         },
         "fa": {
-            "sentence": "درخت امروز زیبا به نظر می‌رسد.",
-            "transliteration": "deraxt emruz zibâ be nazar miresad",
-            "translationJa": "今日は木がとてもきれいに見えます。"
+            "sentence": "این درخت بلند است.",
+            "transliteration": "in deraxt boland ast",
+            "translationJa": "この木は高いです。"
         },
         "mn": {
-            "sentence": "Өнөөдөр мод сайхан харагдаж байна.",
-            "translationJa": "今日は木がとてもきれいに見えます。"
+            "sentence": "Энэ мод өндөр.",
+            "translationJa": "この木は高いです。"
         },
         "hi": {
-            "sentence": "पेड़ सुंदर है।",
-            "transliteration": "peṛ sundar hai.",
-            "translationJa": "木はきれいです。"
+            "sentence": "यह पेड़ ऊँचा है।",
+            "transliteration": "yah peṛ ū̃chā hai",
+            "translationJa": "この木は高いです。"
         },
         "reviewed": true
     },
     "石": {
         "tr": {
-            "sentence": "Bugün taş çok güzel görünüyor.",
-            "translationJa": "今日は石がとてもきれいに見えます。"
+            "sentence": "Bu taş ağır.",
+            "translationJa": "この石は重いです。"
         },
         "ar": {
-            "sentence": "يبدو حجر جميلا اليوم.",
-            "transliteration": "yabdū ḥajar jamīlan al-yawm",
-            "translationJa": "今日は石がとてもきれいに見えます。"
+            "sentence": "هذا الحجر ثقيل.",
+            "transliteration": "hādhā al-ḥajaru thaqīl",
+            "translationJa": "この石は重いです。"
         },
         "fa": {
-            "sentence": "سنگ امروز زیبا به نظر می‌رسد.",
-            "transliteration": "sang emruz zibâ be nazar miresad",
-            "translationJa": "今日は石がとてもきれいに見えます。"
+            "sentence": "این سنگ سنگین است.",
+            "transliteration": "in sang sangin ast",
+            "translationJa": "この石は重いです。"
         },
         "mn": {
-            "sentence": "Өнөөдөр чулуу сайхан харагдаж байна.",
-            "translationJa": "今日は石がとてもきれいに見えます。"
+            "sentence": "Энэ чулуу хүнд.",
+            "translationJa": "この石は重いです。"
         },
         "hi": {
-            "sentence": "पत्थर सुंदर है।",
-            "transliteration": "patthar sundar hai.",
-            "translationJa": "石はきれいです。"
+            "sentence": "यह पत्थर भारी है।",
+            "transliteration": "yah patthar bhārī hai",
+            "translationJa": "この石は重いです。"
         },
         "reviewed": true
     },
     "道": {
         "tr": {
-            "sentence": "Bugün yol çok güzel görünüyor.",
-            "translationJa": "今日は道がとてもきれいに見えます。"
+            "sentence": "Bu yol çok uzun.",
+            "translationJa": "この道は長いです。"
         },
         "ar": {
-            "sentence": "يبدو طريق جميلا اليوم.",
-            "transliteration": "yabdū ṭarīq jamīlan al-yawm",
-            "translationJa": "今日は道がとてもきれいに見えます。"
+            "sentence": "هذا الطريق طويل.",
+            "transliteration": "hādhā al-ṭarīq ṭawīl",
+            "translationJa": "この道は長いです。"
         },
         "fa": {
-            "sentence": "راه امروز زیبا به نظر می‌رسد.",
-            "transliteration": "râh emruz zibâ be nazar miresad",
-            "translationJa": "今日は道がとてもきれいに見えます。"
+            "sentence": "این راه طولانی است.",
+            "transliteration": "in râh tulâni ast",
+            "translationJa": "この道は長いです。"
         },
         "mn": {
-            "sentence": "Өнөөдөр зам сайхан харагдаж байна.",
-            "translationJa": "今日は道がとてもきれいに見えます。"
+            "sentence": "Энэ зам урт.",
+            "translationJa": "この道は長いです。"
         },
         "hi": {
-            "sentence": "रास्ता सुंदर है।",
-            "transliteration": "rāstā sundar hai.",
-            "translationJa": "道はきれいです。"
+            "sentence": "यह रास्ता लंबा है।",
+            "transliteration": "yah rāstā lambā hai",
+            "translationJa": "この道は長いです。"
         },
         "reviewed": true
     },
     "山": {
         "tr": {
-            "sentence": "Bugün dağ çok güzel görünüyor.",
-            "translationJa": "今日は山がとてもきれいに見えます。"
+            "sentence": "Dağ çok yüksek.",
+            "translationJa": "山はとても高いです。"
         },
         "ar": {
-            "sentence": "يبدو جبل جميلا اليوم.",
-            "transliteration": "yabdū jabal jamīlan al-yawm",
-            "translationJa": "今日は山がとてもきれいに見えます。"
+            "sentence": "الجبل مرتفع جدا.",
+            "transliteration": "al-jabal murtafiʿ jiddan",
+            "translationJa": "山はとても高いです。"
         },
         "fa": {
-            "sentence": "کوه امروز زیبا به نظر می‌رسد.",
-            "transliteration": "kuh emruz zibâ be nazar miresad",
-            "translationJa": "今日は山がとてもきれいに見えます。"
+            "sentence": "کوه خیلی بلند است.",
+            "transliteration": "kuh xeyli boland ast",
+            "translationJa": "山はとても高いです。"
         },
         "mn": {
-            "sentence": "Өнөөдөр уул сайхан харагдаж байна.",
-            "translationJa": "今日は山がとてもきれいに見えます。"
+            "sentence": "Уул маш өндөр.",
+            "translationJa": "山はとても高いです。"
         },
         "hi": {
-            "sentence": "पहाड़ सुंदर है।",
-            "transliteration": "pahāṛ sundar hai.",
-            "translationJa": "山はきれいです。"
+            "sentence": "पहाड़ बहुत ऊँचा है।",
+            "transliteration": "pahāṛ bahut ū̃chā hai",
+            "translationJa": "山はとても高いです。"
         },
         "reviewed": true
     },
     "川": {
         "tr": {
-            "sentence": "Bugün nehir çok güzel görünüyor.",
-            "translationJa": "今日は川がとてもきれいに見えます。"
+            "sentence": "Nehir buradan akıyor.",
+            "translationJa": "川がここを流れています。"
         },
         "ar": {
-            "sentence": "يبدو نهر جميلا اليوم.",
-            "transliteration": "yabdū nahr jamīlan al-yawm",
-            "translationJa": "今日は川がとてもきれいに見えます。"
+            "sentence": "النهر يجري هنا.",
+            "transliteration": "al-nahr yajri hunā",
+            "translationJa": "川がここを流れています。"
         },
         "fa": {
-            "sentence": "رودخانه امروز زیبا به نظر می‌رسد.",
-            "transliteration": "rudxâne emruz zibâ be nazar miresad",
-            "translationJa": "今日は川がとてもきれいに見えます。"
+            "sentence": "رودخانه از اینجا می‌گذرد.",
+            "transliteration": "rudxâne az injâ migozarad",
+            "translationJa": "川がここを流れています。"
         },
         "mn": {
-            "sentence": "Өнөөдөр гол сайхан харагдаж байна.",
-            "translationJa": "今日は川がとてもきれいに見えます。"
+            "sentence": "Гол энд урсдаг.",
+            "translationJa": "川がここを流れています。"
         },
         "hi": {
-            "sentence": "नदी सुंदर है।",
-            "transliteration": "nadī sundar hai.",
-            "translationJa": "川はきれいです。"
+            "sentence": "नदी यहाँ बहती है।",
+            "transliteration": "nadī yahā̃ bahtī hai",
+            "translationJa": "川がここを流れています。"
         },
         "reviewed": true
     },
     "海": {
         "tr": {
-            "sentence": "Bugün deniz çok güzel görünüyor.",
-            "translationJa": "今日は海がとてもきれいに見えます。"
+            "sentence": "Deniz bugün sakin.",
+            "translationJa": "今日は海が穏やかです。"
         },
         "ar": {
-            "sentence": "يبدو بحر جميلا اليوم.",
-            "transliteration": "yabdū baḥr jamīlan al-yawm",
-            "translationJa": "今日は海がとてもきれいに見えます。"
+            "sentence": "البحر هادئ اليوم.",
+            "transliteration": "al-baḥr hādiʾ al-yawm",
+            "translationJa": "今日は海が穏やかです。"
         },
         "fa": {
-            "sentence": "دریا امروز زیبا به نظر می‌رسد.",
-            "transliteration": "daryâ emruz zibâ be nazar miresad",
-            "translationJa": "今日は海がとてもきれいに見えます。"
+            "sentence": "دریا امروز آرام است.",
+            "transliteration": "daryâ emruz ârâm ast",
+            "translationJa": "今日は海が穏やかです。"
         },
         "mn": {
-            "sentence": "Өнөөдөр далай сайхан харагдаж байна.",
-            "translationJa": "今日は海がとてもきれいに見えます。"
+            "sentence": "Далай өнөөдөр тайван.",
+            "translationJa": "今日は海が穏やかです。"
         },
         "hi": {
-            "sentence": "समुद्र सुंदर है।",
-            "transliteration": "samudra sundar hai.",
-            "translationJa": "海はきれいです。"
+            "sentence": "समुद्र आज शांत है।",
+            "transliteration": "samudra āj śānt hai",
+            "translationJa": "今日は海が穏やかです。"
         },
         "reviewed": true
     },

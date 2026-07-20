@@ -92,6 +92,13 @@ function createQuiz() {
     assert.equal(new Set(numberExamples.map(example => example.tr.sentence)).size, 10);
     assert.ok(numberExamples.every(example => example.reviewed === true));
     assert.ok(numberExamples.every(example => !example.tr.sentence.includes("Tahtaya")));
+
+    const stoneExample = JSON.parse(vm.runInContext("JSON.stringify(EXAMPLES['石'])", context));
+    assert.equal(stoneExample.tr.sentence, "Bu taş ağır.");
+    Object.values(stoneExample).filter(value => typeof value === "object").forEach(example => {
+        assert.equal(example.translationJa, "この石は重いです。");
+        assert.ok(!example.translationJa.includes("きれいに見えます"));
+    });
 }
 
 {
