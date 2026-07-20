@@ -80,6 +80,7 @@ function createQuiz() {
     ids.secondLanguage.value = "mongolian";
     ids.secondLanguage.onchange();
     assert.match(ids.languageLabel.textContent, /ヒンディー語.*モンゴル語/);
+    assert.ok(!ids.languageLabel.textContent.includes("→"));
     assert.equal(ids.word.children[0].children[1].className, "transliteration");
     assert.equal(ids.word.children[1].children[1].className, "ipa");
     vm.runInContext("checkAnswer(currentQuestion.ja)", context);
