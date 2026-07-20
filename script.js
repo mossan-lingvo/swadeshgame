@@ -128,6 +128,8 @@ function renderQuestion() {
         button.disabled = false;
         button.className = "choice";
     });
+    examplesEl.hidden = false;
+}
 
     currentQuestion = pickQuestion();
     if (!currentQuestion) return showRoundSummary();
