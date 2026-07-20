@@ -42,7 +42,7 @@ function createQuiz() {
     const predictableMath = Object.create(Math);
     predictableMath.random = () => 0;
     const context = vm.createContext({ console, document, Math: predictableMath, Set });
-    vm.runInContext(`${fs.readFileSync("words.js", "utf8")}\n${fs.readFileSync("script.js", "utf8")}`, context);
+    vm.runInContext(`${fs.readFileSync("words.js", "utf8")}\n${fs.readFileSync("examples.js", "utf8")}\n${fs.readFileSync("script.js", "utf8")}`, context);
     return { choices, context, ids };
 }
 
@@ -66,8 +66,18 @@ function createQuiz() {
     vm.runInContext(`WORDS.forEach(word => {
         Object.values(LANGUAGES).forEach(language => {
             const example = getExample(word, language);
+            const wordCount = example.text.trim().split(/\\s+/).length;
+            if (wordCount < 2 || wordCount > 6) {
+                throw new Error(word.ja + "/" + language.key + " example has " + wordCount + " words");
+            }
             if (!example.text.includes(word[language.key])) {
                 throw new Error(word.ja + "/" + language.key + " example omits its vocabulary word");
+            }
+            if (!example.ja) {
+                throw new Error(word.ja + "/" + language.key + " needs a Japanese translation");
+            }
+            if (["ar", "fa", "hi"].includes(language.key) && !example.latn) {
+                throw new Error(word.ja + "/" + language.key + " needs a transliteration");
             }
         });
     })`, context);

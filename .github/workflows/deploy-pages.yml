@@ -30,12 +30,13 @@ jobs:
         run: |
           node --check script.js
           node --check words.js
+          node --check examples.js
           node tests/quiz.test.js
 
       - name: Prepare site
         run: |
           mkdir _site
-          cp index.html script.js style.css words.js _site/
+          cp index.html script.js style.css words.js examples.js _site/
           touch _site/.nojekyll
 
       - name: Configure Pages
