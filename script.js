@@ -261,7 +261,7 @@ function renderQuestion() {
     if (!currentQuestion) return showRoundSummary();
     previousQuestion = currentQuestion;
     const selectedLanguages = getSelectedLanguages();
-    labelEl.textContent = selectedLanguages.map(language => language.label).join("　→　");
+    labelEl.textContent = selectedLanguages.map(language => language.label).join("　");
     renderWords(selectedLanguages);
 
     const choices = shuffle([
