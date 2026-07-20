@@ -10,40 +10,29 @@ class Element {
         this.dir = "";
         this.disabled = false;
         this.hidden = false;
+        this.innerHTML = "";
         this.lang = "";
         this.style = {};
         this.textContent = "";
         this.value = "";
     }
-
-    appendChild(child) {
-        this.children.push(child);
-        return child;
-    }
-
-    replaceChildren(...children) {
-        this.children = children;
-    }
-
+    appendChild(child) { this.children.push(child); return child; }
+    replaceChildren(...children) { this.children = children; }
     get classList() {
-        return {
-            add: className => {
-                const classNames = new Set(this.className.split(" ").filter(Boolean));
-                classNames.add(className);
-                this.className = [...classNames].join(" ");
-            }
-        };
+        return { add: name => {
+            const names = new Set(this.className.split(" ").filter(Boolean));
+            names.add(name);
+            this.className = [...names].join(" ");
+        }};
     }
 }
 
 function createQuiz() {
-    const ids = Object.fromEntries([
-        "word", "languageLabel", "result", "nextButton", "examples", "exampleList",
-        "firstLanguage", "secondLanguage", "questionNumber", "correctCount", "accuracy", "restart"
-    ].map(id => [id, new Element(id)]));
+    const names = ["word", "languageLabel", "result", "nextButton", "examples", "exampleList",
+        "roundSummary", "firstLanguage", "secondLanguage", "learnedCount", "attemptCount", "accuracy", "restart"];
+    const ids = Object.fromEntries(names.map(id => [id, new Element(id)]));
     ids.firstLanguage.value = "turkish";
     ids.secondLanguage.value = "arabic";
-
     const choices = Array.from({ length: 4 }, () => new Element());
     const document = {
         createElement: () => new Element(),
@@ -53,52 +42,56 @@ function createQuiz() {
     const predictableMath = Object.create(Math);
     predictableMath.random = () => 0;
     const context = vm.createContext({ console, document, Math: predictableMath, Set });
-    const source = `${fs.readFileSync("words.js", "utf8")}\n${fs.readFileSync("script.js", "utf8")}`;
-    vm.runInContext(source, context);
-
+    vm.runInContext(`${fs.readFileSync("words.js", "utf8")}\n${fs.readFileSync("script.js", "utf8")}`, context);
     return { choices, context, ids };
 }
 
 {
     const { context } = createQuiz();
-    const data = JSON.parse(vm.runInContext("JSON.stringify(WORDS)", context));
-
-    data.forEach(word => {
-        ["tr", "ar", "fa", "mn"].forEach(language => {
-            assert.ok(word.examples[language].text, `${word.ja}/${language} needs an example`);
-            assert.ok(word.examples[language].ja, `${word.ja}/${language} needs a Japanese translation`);
-        });
-        assert.ok(word.examples.ar.latn, `${word.ja}/ar needs a transliteration`);
-        assert.ok(word.examples.fa.latn, `${word.ja}/fa needs a transliteration`);
+    const words = JSON.parse(vm.runInContext("JSON.stringify(WORDS)", context));
+    assert.equal(words.length, 95);
+    words.forEach(word => {
+        ["tr", "ar", "arLatn", "fa", "faLatn", "mn", "mnIpa", "hi", "hiLatn"].forEach(key =>
+            assert.ok(word[key], `${word.ja} needs ${key}`));
     });
+    assert.equal(vm.runInContext("roundWords.length", context), 10);
 }
 
 {
     const { context, ids } = createQuiz();
-    assert.equal(ids.word.children.length, 2);
-    assert.match(ids.languageLabel.textContent, /トルコ語.*アラビア語/);
-
-    ids.firstLanguage.value = "persian";
+    ids.firstLanguage.value = "hindi";
     ids.firstLanguage.onchange();
     ids.secondLanguage.value = "mongolian";
     ids.secondLanguage.onchange();
-    assert.match(ids.languageLabel.textContent, /ペルシア語.*モンゴル語/);
-    assert.equal(ids.word.children[0].children[0].lang, "fa");
-    assert.equal(ids.word.children[1].children[0].lang, "mn");
-
-    vm.runInContext("check(currentQuestion.ja)", context);
-    assert.equal(ids.examples.hidden, false);
+    assert.match(ids.languageLabel.textContent, /ヒンディー語.*モンゴル語/);
+    assert.equal(ids.word.children[0].children[1].className, "transliteration");
+    assert.equal(ids.word.children[1].children[1].className, "ipa");
+    vm.runInContext("checkAnswer(currentQuestion.ja)", context);
     assert.equal(ids.exampleList.children.length, 2);
-    assert.match(ids.exampleList.children[0].children.at(-1).textContent, /^日本語：/);
+}
+
+{
+    const { context, ids } = createQuiz();
+    const seen = new Set();
+    for (let index = 0; index < 10; index++) {
+        const word = vm.runInContext("currentQuestion", context);
+        assert.ok(!seen.has(word), "a learned word must not repeat in the round");
+        seen.add(word);
+        vm.runInContext("checkAnswer(currentQuestion.ja)", context);
+        if (index < 9) vm.runInContext("renderQuestion()", context);
+    }
+    vm.runInContext("showRoundSummary()", context);
+    assert.equal(seen.size, 10);
+    assert.match(ids.roundSummary.innerHTML, /正答率：100%/);
 }
 
 {
     const { context } = createQuiz();
-    const missedWord = vm.runInContext("currentQuestion", context);
-    vm.runInContext("check('__wrong__'); nextQuestion()", context);
-    assert.notEqual(vm.runInContext("currentQuestion", context), missedWord);
-    vm.runInContext("check(currentQuestion.ja); nextQuestion()", context);
-    assert.equal(vm.runInContext("currentQuestion", context), missedWord);
+    const missed = vm.runInContext("currentQuestion", context);
+    vm.runInContext("checkAnswer('__wrong__'); renderQuestion()", context);
+    assert.notEqual(vm.runInContext("currentQuestion", context), missed);
+    vm.runInContext("checkAnswer(currentQuestion.ja); renderQuestion()", context);
+    assert.equal(vm.runInContext("currentQuestion", context), missed);
 }
 
 console.log("Quiz behavior tests passed.");

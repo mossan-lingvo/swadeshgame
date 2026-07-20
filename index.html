@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トルコ語・アラビア語・ペルシア語・モンゴル語 単語クイズ</title>
+    <title>多言語単語ゲーム</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +12,7 @@
 
 <div class="container">
 
-    <h1>🌍 トルコ語・アラビア語・ペルシア語・モンゴル語 単語ゲーム</h1>
+    <h1>🌍 多言語単語ゲーム</h1>
 
     <div class="language-selectors" aria-label="出題言語と表示順">
         <label>
@@ -22,6 +22,7 @@
                 <option value="arabic">🇸🇦 アラビア語</option>
                 <option value="persian">🇮🇷 ペルシア語</option>
                 <option value="mongolian">🇲🇳 モンゴル語</option>
+                <option value="hindi">🇮🇳 ヒンディー語</option>
             </select>
         </label>
 
@@ -32,6 +33,7 @@
                 <option value="arabic" selected>🇸🇦 アラビア語</option>
                 <option value="persian">🇮🇷 ペルシア語</option>
                 <option value="mongolian">🇲🇳 モンゴル語</option>
+                <option value="hindi">🇮🇳 ヒンディー語</option>
             </select>
         </label>
     </div>
@@ -46,9 +48,9 @@
 
     <div class="score">
 
-        <div>問題 <span id="questionNumber">1</span></div>
+        <div>習得 <span id="learnedCount">0/10</span></div>
 
-        <div>正解 <span id="correctCount">0</span></div>
+        <div>解答 <span id="attemptCount">0</span></div>
 
         <div>正答率 <span id="accuracy">0%</span></div>
 
@@ -81,6 +83,8 @@
         <h2>例文</h2>
         <div id="exampleList"></div>
     </section>
+
+    <section id="roundSummary" hidden aria-live="polite"></section>
 
     <button id="nextButton" type="button">
         次の問題
