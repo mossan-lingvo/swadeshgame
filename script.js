@@ -1,6 +1,14 @@
 let currentQuestion;
+let previousQuestion;
 let total = 0;
 let correct = 0;
+
+const LANGUAGES = {
+    turkish: { label: "🇹🇷 トルコ語", key: "tr", lang: "tr" },
+    arabic: { label: "🇸🇦 アラビア語", key: "ar", lang: "ar", transliterationKey: "arLatn", rtl: true },
+    persian: { label: "🇮🇷 ペルシア語", key: "fa", lang: "fa", transliterationKey: "faLatn", rtl: true },
+    mongolian: { label: "🇲🇳 モンゴル語", key: "mn", lang: "mn" }
+};
 
 const wordEl = document.getElementById("word");
 const labelEl = document.getElementById("languageLabel");
@@ -14,22 +22,64 @@ const accuracy = document.getElementById("accuracy");
 const buttons = document.querySelectorAll(".choice");
 
 function shuffle(array) {
-    return [...array].sort(() => Math.random() - 0.5);
+    const shuffled = [...array];
+
+    for (let index = shuffled.length - 1; index > 0; index--) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+    }
+
+    return shuffled;
 }
 
-function getPool() {
-
+function getSelectedLanguages() {
     const mode = document.getElementById("mode").value;
 
-    if (mode === "turkish") {
-        return WORDS.filter(w => w.lang === "turkish");
+    if (mode === "mixed") {
+        return Object.values(LANGUAGES);
     }
 
-    if (mode === "arabic") {
-        return WORDS.filter(w => w.lang === "arabic");
+    return [LANGUAGES[mode]];
+}
+
+function renderWords(languages) {
+    wordEl.replaceChildren();
+
+    languages.forEach(language => {
+        const entry = document.createElement("div");
+        entry.className = "word-entry";
+
+        const original = document.createElement("div");
+        original.lang = language.lang;
+        original.dir = language.rtl ? "rtl" : "ltr";
+        original.textContent = currentQuestion[language.key];
+        entry.appendChild(original);
+
+        if (language.transliterationKey) {
+            const transliteration = document.createElement("div");
+            transliteration.className = "transliteration";
+            transliteration.lang = "en-Latn";
+            transliteration.dir = "ltr";
+            transliteration.textContent = currentQuestion[language.transliterationKey];
+            entry.appendChild(transliteration);
+        }
+
+        wordEl.appendChild(entry);
+    });
+}
+
+function pickQuestion() {
+    if (WORDS.length < 4) {
+        throw new Error("クイズには4件以上の単語が必要です。");
     }
 
-    return WORDS;
+    const candidates = WORDS.length > 1
+        ? WORDS.filter(word => word !== previousQuestion)
+        : WORDS;
+    const question = candidates[Math.floor(Math.random() * candidates.length)];
+    previousQuestion = question;
+
+    return question;
 }
 
 function nextQuestion() {
@@ -45,33 +95,19 @@ function nextQuestion() {
 
     });
 
-    const pool = getPool();
+    currentQuestion = pickQuestion();
 
-    currentQuestion =
-        pool[Math.floor(Math.random() * pool.length)];
+    const selectedLanguages = getSelectedLanguages();
 
-    labelEl.textContent = "🇹🇷 トルコ語　🇸🇦 アラビア語";
+    labelEl.textContent = selectedLanguages.map(language => language.label).join("　");
+    renderWords(selectedLanguages);
 
-wordEl.innerHTML =
-    `<div>${currentQuestion.tr}</div>
-     <div style="margin-top:15px;font-size:44px;direction:rtl;">
-        ${currentQuestion.ar}
-     </div>`;
+    const distractors = shuffle(
+        WORDS.filter(word => word !== currentQuestion).map(word => word.ja)
+    ).slice(0, 3);
+    const choices = shuffle([currentQuestion.ja, ...distractors]);
 
-    let choices = [currentQuestion.ja];
-    
-    while (choices.length < 4) {
-
-     const candidate =
-    pool[Math.floor(Math.random() * pool.length)].ja;
-
-        if (!choices.includes(candidate)) {
-            choices.push(candidate);
-        }
-
-    }
-
-    shuffle(choices).forEach((choice, index) => {
+    choices.forEach((choice, index) => {
 
         buttons[index].textContent = choice;
 
@@ -130,6 +166,7 @@ document.getElementById("restart").onclick = () => {
     questionNumber.textContent = 1;
     correctCount.textContent = 0;
     accuracy.textContent = "0%";
+    previousQuestion = undefined;
 
     nextQuestion();
 
@@ -143,6 +180,7 @@ document.getElementById("mode").onchange = () => {
     questionNumber.textContent = 1;
     correctCount.textContent = 0;
     accuracy.textContent = "0%";
+    previousQuestion = undefined;
 
     nextQuestion();
 
